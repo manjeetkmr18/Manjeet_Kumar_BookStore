@@ -3,3 +3,35 @@
 .headerimg{
     width: 100%;
 }
+
+.product-img {
+    height: 50%;
+    width: auto;
+}
+
+.lblName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+}
+
+.lblUnitPrice {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+}
+
+.lblShortDescription {
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+#lblLongDescription {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000000;
+    padding: 10px;
+}
