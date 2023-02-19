@@ -1,53 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="Manjeet_Kumar_BookStore.Products" %>
+﻿<%@ Page Title="Book Store - Products" Language="C#"  MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Products.aspx.cs" Inherits="Manjeet_Kumar_BookStore.Products" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="Scripts/jquery-3.6.3.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <link href="~/Assets/css/style.css" rel="stylesheet" />
-    <title>Book Store - Product Page</title>
-</head>
-<body>
-
-    <header>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
-
-            <div class="container justify-content-betweenr">
-                <a class="navbar-brand" href="Default.aspx">Book Store</a>
-
-                <div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item text-white">
-                                <a class="nav-link text-white" href="Default.aspx">Home</a>
-                            </li>
-                            <li class="nav-item text-info">
-                                <a class="nav-link text-info active" href="Products.aspx">Products</a>
-                            </li>
-                            <li class="nav-item text-white">
-                                <a class="nav-link text-white" href="Cart.aspx">Cart</a>
-                            </li>
-                             <li class="nav-item text-info">
-                                <a class="nav-link text-info" href="Login.aspx">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div class="container p-5">
-            <form id="form1" runat="server" class="form-horizontal">
+   <asp:Content ID="mainContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
                 <div class="row">
                     <div class="col-sm-8">
+                        <div class="row">
+                        <asp:Label ID="lblUSerName" runat="server" Text="Label" CssClass="text-bg-info"></asp:Label>
+                        </div>
                         <div class="form-group">
                             <div class="row">
                                 <label class="col-sm-5">Please select a product:</label>
@@ -104,7 +63,7 @@
                                             <asp:TextBox ID="txtQuantity" runat="server" class="form-control" ValidateRequestMode="Enabled" TextMode="Number"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-5">
-                                            <asp:RequiredFieldValidator ID="rfvQuanity" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity" CssClass="text-danger"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="rfvQuanity" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity" CssClass="text-decoration-none"></asp:RequiredFieldValidator>
                                             <asp:RangeValidator ID="rvQuanity" runat="server" ErrorMessage="Quantity must be between 1 to 100" ControlToValidate ="txtQuantity" MaximumValue="100"></asp:RangeValidator>
                                         </div>
                                     </div>
@@ -129,8 +88,4 @@
 
                     </div>
                 </div>
-            </form>
-        </div>
-    </main>
-</body>
-</html>
+      </asp:Content>

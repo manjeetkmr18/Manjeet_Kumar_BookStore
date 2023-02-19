@@ -13,5 +13,12 @@ namespace Manjeet_Kumar_BookStore
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Session["FirstName"] = txtFirstName.Text;
+            Session["LastName"] = txtLastName.Text;
+            Response.Redirect("Products.aspx");
+        }
     }
 }
