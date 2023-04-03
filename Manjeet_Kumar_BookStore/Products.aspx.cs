@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ namespace Manjeet_Kumar_BookStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+ 
             if (!IsPostBack)
             {
                 if (Session["FirstName"] == null && Session["LastName"] == null)
@@ -27,6 +28,7 @@ namespace Manjeet_Kumar_BookStore
                     lblUSerName.Text = "Welcome " + Session["FirstName "] + Session["LastName"];
                
                 }
+            
             }
 
         }

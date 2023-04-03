@@ -11,97 +11,79 @@ namespace Manjeet_Kumar_BookStore
 {
 
 
-    public partial class Products
+    public partial class Checkout
     {
 
         /// <summary>
-        /// lblUSerName control.
+        /// inputEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUSerName;
+        protected global::System.Web.UI.WebControls.TextBox inputEmail;
 
         /// <summary>
-        /// bookstoredatasource control.
+        /// reenterEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource bookstoredatasource;
+        protected global::System.Web.UI.WebControls.TextBox reenterEmail;
 
         /// <summary>
-        /// DDLproducts control.
+        /// firstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLproducts;
+        protected global::System.Web.UI.WebControls.TextBox firstName;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// lastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.TextBox lastName;
 
         /// <summary>
-        /// DataList1 control.
+        /// phoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.TextBox phoneNumber;
 
         /// <summary>
-        /// txtQuantity control.
+        /// inputAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.TextBox inputAddress;
 
         /// <summary>
-        /// rfvQuanity control.
+        /// inputCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuanity;
+        protected global::System.Web.UI.WebControls.TextBox inputCity;
 
         /// <summary>
-        /// rvQuanity control.
+        /// continueShopping control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvQuanity;
-
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// bnnGo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bnnGo;
+        protected global::System.Web.UI.WebControls.HyperLink continueShopping;
     }
 }

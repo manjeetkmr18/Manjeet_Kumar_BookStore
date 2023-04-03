@@ -11,68 +11,97 @@
                             <div class="row">
                                 <label class="col-sm-5">Please select a product:</label>
                                 <div class="col-sm-6">
-                                    <asp:DropDownList ID="DDLproducts" runat="server">
-                                        <asp:ListItem>---Select---</asp:ListItem>
-                                        <asp:ListItem Value="1">ASP.NET Core 2.0</asp:ListItem>
-                                        <asp:ListItem Value="2">ASP.NET Core 2.1</asp:ListItem>
-                                        <asp:ListItem Value="3">ASP.NET Core 2.2</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <asp:SqlDataSource ID="bookstoredatasource" runat="server"
+                                    ConnectionString="<%$ ConnectionStrings:manjeet_bookstoreConnectionString %>"
+                                    SelectCommand="SELECT [Id], [BookName], [Author ] AS Author_, [genre_id], [publisher ] AS publisher_, [published_date ] AS published_date_, [price], [description] FROM [Books]"> </asp:SqlDataSource>
+                                    <asp:DropDownList ID="DDLproducts" runat="server" DataSourceID="bookstoredatasource" DataTextField="BookName" DataValueField="Id" AutoPostBack="True" CssClass="product-dropdown"
+                                         Width="100%"
+                                        ></asp:DropDownList>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                         ConnectionString="<%$ ConnectionStrings:manjeet_bookstoreConnectionString %>"
+                            SelectCommand="SELECT b.[Id], b.[BookName], b.[Author] AS Author_, b.[genre_id], g.[Name], 
+       b.[publisher] AS publisher_, b.[published_date] AS published_date_, b.[price], b.[description] 
+            FROM [Books] b
+            JOIN [genre] g ON b.[genre_id] = g.[Id]
+            WHERE (b.[Id] = @id)
+            ">
+                             <SelectParameters>
+                                  <asp:ControlParameter ControlID="DDLproducts" Name="id"  PropertyName="SelectedValue" Type="Int32" />
+                            </SelectParameters>
+
+                            </asp:SqlDataSource>
+
+                      <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1" ShowFooter="False">
+                        <ItemTemplate>
+                          
+                            <div class="form-group">
                             <div class="col-sm-12">
                                 <h4>
-                                    <asp:Label ID="lblName" runat="server" class="lblName">
-                                        ASP.NET Core 2.0
-                                    </asp:Label>
+                                   <asp:Label ID="Label1" runat="server" CssClass="col xs-4" Text='<%# Eval("BookName") %>'></asp:Label>
                                 </h4>
                             </div>
                         </div>
-                        <div class="form-group">
+                           
+                         <div class="form-group">
                             <div class="col-sm-12">
-                                <asp:Label ID="lblShortDescription" runat="server" class="lblShortDescription">
-                                    by Joel Murach (Author), Mary Delamater (Author)
-                                </asp:Label>
+                                <%-- Concatenate with static string --%>
+                                <asp:Literal ID="Literal1" runat="server" Text="By " />
+                                <asp:Literal ID="Literal2" runat="server" Text='<%# Eval("Author_") %>' />
                             </div>
                         </div>
-                        <div class="form-group">
+
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                                <%-- Concatenate with static string --%>
+                                <asp:Literal ID="Literal3" runat="server" Text="Genre :  " />
+                                <asp:Literal ID="Literal4" runat="server" Text='<%# Eval("Name") %>' />
+                            </div>
+                        </div>
+
+                           <div class="form-group">
                             <div class="col-sm-8">
-                                <asp:Label ID="lblLongDescription" runat="server" class="lblLongDescription">
-                                    This 2nd Edition of Murach's ASP.NET Core MVC does a better job than ever of delivering the skills you need to develop websites using the MVC (Model-View-Controller) pattern with ASP.NET Core. If you know the basics of C#, you'll quickly learn to code the way today's top web professionals do. Each section features clear, beginner-friendly examples and easy-to-understand explanations that walk you through crucial skills, best practices, and helpful tips.
-                                </asp:Label>
+                             <asp:Label ID="lblLongDescription" runat="server" CssClass="lblLongDescription" Text='<%# Eval("description") %>'> </asp:Label>
                             </div>
                         </div>
-                        <div class="form-group">
+
+                            <div class="form-group">
                             <div class="col-sm-12">
-                                <asp:Label ID="lblUnitPrice" runat="server" class="font-weight-bold lblUnitPrice">
-                                    $150.00
-                                </asp:Label>
+                    
+                            <asp:Label ID="litTotalPrice" runat="server" Text="Total Price: " />
+                            <asp:Label ID="litFinalPrice" runat="server" CssClass="font-weight-bold lblUnitPrice" Text='<%# "$" + Eval("price") %>' />
                             </div>
                         </div>
+
+                        </ItemTemplate>
+               
+                    </asp:DataList>
 
                         <div class="row mt-5">
 
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <label class="col-sm-1 font-weight-bold">Quantity:</label>
+                                        <div class="col-sm-4">
+                                            <label class="font-weight-bold">Quantity:</label>
                                         </div>
                                         <div class="col-sm-4" id="rvQuantity">
                                             <asp:TextBox ID="txtQuantity" runat="server" class="form-control" ValidateRequestMode="Enabled" TextMode="Number"></asp:TextBox>
                                         </div>
-                                        <div class="col-sm-5">
+                                      
+                                    </div>
+                                        <div class="col">
                                             <asp:RequiredFieldValidator ID="rfvQuanity" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity" CssClass="text-decoration-none"></asp:RequiredFieldValidator>
                                             <asp:RangeValidator ID="rvQuanity" runat="server" ErrorMessage="Quantity must be between 1 to 100" ControlToValidate ="txtQuantity" MaximumValue="100"></asp:RangeValidator>
                                         </div>
-                                    </div>
                                 </div>
                                 <div class="form-group mt-4">
                                     <div class="row">
                                         <div class="col-sm-12">
 
-                                            <asp:Button ID="btnAdd" runat="server" Text="Add To Cart" class="btn btn-lg btn-primary disabled" />
+                                            <asp:Button ID="btnAdd" runat="server" Text="Add To Cart" class="btn btn-lg btn-primary" />
                                             <asp:Button ID="bnnGo" runat="server" Text="Go To Cart" class="btn btn-lg btn-success" />
 
                                         </div>

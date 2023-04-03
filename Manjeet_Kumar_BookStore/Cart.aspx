@@ -51,7 +51,7 @@
                                         class="btn btn-secondary m-3" />
                                     <asp:Button ID="btnCheckOut" runat="server"
                                         Text="Check Out"
-                                        class="btn btn-secondary m-3" />
+                                        class="btn btn-secondary m-3" PostBackUrl="~/Checkout.aspx" />
                                 </div>
                             </div>
                         </div>

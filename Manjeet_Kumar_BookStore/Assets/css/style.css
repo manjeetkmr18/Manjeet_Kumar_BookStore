@@ -1,6 +1,9 @@
 ﻿body {
 }
-.headerimg{
+select, select#ContentPlaceHolder1_DDLproducts {
+    width: 100%;
+}
+.headerimg {
     width: 100%;
 }
 
